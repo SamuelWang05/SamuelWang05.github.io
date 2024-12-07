@@ -1,5 +1,5 @@
 h1{
-    font-family: "Press Start 2P";
+    font-family: "Garamond";
     font-weight: 100;
     color: white;
     margin-bottom: 0px;
@@ -58,20 +58,4 @@ hr{
 #container{
     margin-top:0px;
     margin-bottom: 0px;
-}
-
-#cursor {
-    position: absolute;
-    width: 64px; /* Adjust width for your cursor image */
-    height: 64px; /* Adjust height for your cursor image */
-    background-image: url("Images/cursor.png"); /* Use your custom cursor image */
-    background-size: contain; /* Scale the image to fit */
-    background-repeat: no-repeat; /* Prevent repeating the image */
-    pointer-events: none; /* Prevent the cursor from blocking mouse events */
-    transform-origin: center; /* Set the pivot point for rotation */
-    transition: transform 0.1s; /* Smooth transition for rotation */
-}
-
-html, body{
-    cursor: none;
 }
