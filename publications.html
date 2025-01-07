@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samuel Wang</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="linksScript.js" defer></script>
+    <script src="pdfScript.js" defer></script>
+</head>
+<body>
+    <div class="nav-container">
+        <a href="index.html"><button>About Me</button></a>
+        <a href="projectsHome.html"><button>Projects</button></a>
+        <a href="habits.html"><button>What am I up to?</button></a>
+        <a href="resume.html"><button>Resume</button></a>
+        <a href="publications.html"><button>Publications</button></a>
+        <a href="connect.html"><button>Connect with me!</button></a>
+    </div>
+
+    <div class="links-container">
+        <div class="link-box">
+            <div class="link-content" style="background-image: url('Images/NSREC_Paper.png');" data-pdf="Downloadables/Telemetry-based_Analysis_of_Single-Event-Induced_Failures_in_Unmanned_Aerial_Vehicles.pdf">
+                <span class="link-text">NSREC 2023</span>
+            </div>
+        </div>
+
+        <div class="link-box">
+            <div class="link-content" style="background-image: url('Images/SyBBURE_Summer24.png');" data-pdf="Downloadables/SyBBURE Poster Summer24.pdf">
+                <span class="link-text">Undergraduate Research Fair 2023</span>
+            </div>
+        </div>
+
+        <div class="link-box">
+            <div class="link-content" style="background-image: url('Images/SyBBURE_Summer24.png');" data-pdf="Downloadables/SyBBURE Poster Summer24.pdf">
+                <span class="link-text">VUSE / SyBBURE 2024 Summer</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="pdfIframe" width="100%" height="500px"></iframe>
+        </div>
+    </div>
+</body>
+</html>
