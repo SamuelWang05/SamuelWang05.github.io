@@ -194,14 +194,30 @@ a {
   transform: scaleX(1); /* Ensure the underline is always visible */
 }
 
-/* Style for the "Back to Projects" link */
-.back-link {
-  align-self: flex-start; /* Align the link to the left */
-  margin: 10px 20px; /* Add some spacing around the link */
-  color: coral;
-  font-weight: bold;
+.top-links {
+  display: flex;
+  justify-content: space-between; /* Space links between the left and center */
+  align-items: center; /* Align links vertically */
+  width: 100%; /* Make the container span the full width of the page */
+  padding: 10px 20px; /* Add padding for spacing */
 }
 
-.back-link:hover {
-  text-decoration: underline; /* Add underline on hover */
+.back-link {
+  color: coral;
+  font-weight: bold;
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+.github-link {
+  color: coral;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 auto; /* Center the GitHub link horizontally */
+  padding-right: 10px;
+  align-items: center;
+}
+
+.back-link:hover, .github-link:hover {
+  text-decoration: underline; /* Add underline effect on hover */
 }
