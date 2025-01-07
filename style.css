@@ -73,7 +73,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 30px;
-  margin: 50px auto;
+  margin: 15px auto; /* Reduced the top and bottom margin */
   padding: 20px;
   max-width: 900px;
   flex-wrap: wrap;
@@ -192,4 +192,16 @@ a {
   height: 2px; /* Thickness of the underline */
   background-color: coral; /* Set the underline color to coral */
   transform: scaleX(1); /* Ensure the underline is always visible */
+}
+
+/* Style for the "Back to Projects" link */
+.back-link {
+  align-self: flex-start; /* Align the link to the left */
+  margin: 10px 20px; /* Add some spacing around the link */
+  color: coral;
+  font-weight: bold;
+}
+
+.back-link:hover {
+  text-decoration: underline; /* Add underline on hover */
 }

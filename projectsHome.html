@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Samuel Wang's Portfolio</title>
+        <title>Samuel Wang</title>
         <link rel="stylesheet" href="style.css">
+        <script src="linksScript.js" defer></script>
+        <script src="pdfScript.js" defer></script>
     </head>
     <body>
         <div class="nav-container">
@@ -16,4 +18,29 @@
             <a href="connect.html"><button>Connect with me!</button></a>
         </div>
     </body>
+
+    <div class="links-container">
+        <div class="link-box">
+            <a href="Projects/systemClock.html">
+                <div class="link-content" style="background-image: url('Images/SystemClock.jpg');">
+                    <span class="link-text">System Clock</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="link-box">
+            <a href="Projects/trashBot.html">
+                <div class="link-content" style="background-image: url('Images/trashBot_img.jpg');">
+                    <span class="link-text">Discord Trash Bot</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div id="pdfModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="pdfIframe" width="100%" height="500px"></iframe>
+        </div>
+    </div>
 </html>
