@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Developed by Samuel Wang -->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Samuel's Portfolio Website</title>
+    <title>Samuel Wang's Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <script src="script.js"></script>
-
-    <h1>Samuel Wang's Portfolio</h1>
-
-    <div id="container">
-        <div class="container" style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
-            <nav>
-                <ul>
-                    <li><a href = "aboutMe.html" target = _self title = "Learn more about me!"><button><b>About Me</b></button></a></li>
-                    <li><a href = "projectsHome.html" target = _self title = "See what I've made!"><button><b>Projects</b></button></a></li>
-                    <li><a href = "https://www.linkedin.com/in/samuel-wang-506a9029a/", target = _blank title = "Connect with me!"><button><b>LinkedIn</b></button></a></li>
-                    <li><a href = "https://samuelwang1.blogspot.com/" target = _blank title = "My old blog website"><button><b>Blog</b></button></a></li>
-                    <li><a href = "Downloadables/Samuel Wang Electrical Engineering Resume.pdf" target = _blank title = "My resume"><button><b>Resume</b></button></a></li>
-                </ul>
-            </nav>
-        </div>
+    <div class="nav-container">
+        <a href="index.html"><button>About Me</button></a>
+        <a href="projectsHome.html"><button>Projects</button></a>
+        <a href="habits.html"><button>What am I up to?</button></a>
+        <a href="resume.html"><button>Resume</button></a>
+        <a href="connect.html"><button>Connect with me!</button></a>
     </div>
 
-    <img src = "Images/meWithPoster.jpg" height = "300" alt = "This is a picture of me in front of a poster" title="My poster presentation at the NSREC 2023 confrence">
+    <h1>Welcome to my portfolio website!</h1>
 
-    <h4>
-        Hi, I'm Samuel Wang, an electrical and computer engineering major studying at Vanderbilt University. Feel free to explore my projects or learn more about me!
-    </h4>
+    <div class="intro">
+        <img src="Images/meWithPoster.jpg" height="400" alt="Presenting a poster at the NSREC conference">
+    
+        <div class="text-container">
+            <h4>
+                Hi! I'm Samuel Wang, an Electrical and Computer Engineering major at Vanderbilt University with a concentration in Embedded Computing, Cyber-Physical Systems, and Microcontrollers.
+            </h4>
+    
+            <h4>
+                I currently do research involving the effects of radiation of electronic devices for space and defense applications, where I design the PCBs for test ICs, as well as run characterization tests. I'm also involved in a variety of student organizations - most notably the Amateur Radio Club, SyBBURE (a research fellowship program), and Vanderbilt Fusion. More details about these student orgs can be found on my <a href="resume.html">resume page</a>.
+            </h4>
+    
+            <h4>
+                I'm interested in the fields of PCB design (mixed signal / high speed digital), FGPA's, and embedded devices / firmware but love pretty much every aspect of ECE. I spend my free time diving into these areas by creating lots of different projects, and tinkering with all kinds of electronics. Check out my <a href="projectsHome.html">projects page</a> to see more!
+            </h4>
+
+            <h4>
+                Some other fields that I'm interested in aside from ECE are cybersecurity, 3D printing, and video production.
+            </h4>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
 </body>
 </html>

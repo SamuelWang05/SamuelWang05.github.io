@@ -1,91 +1,70 @@
-* {
+body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
-}
-
-body {
   font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-  z-index: 1000;
-}
-
-.navbar ul {
-  list-style: none;
   display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.navbar li {
-  margin: 0 15px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-.navbar a:hover {
-  color: #0073e6;
-}
-
-.section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 50px;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-.home {
-  background: #f5f5f5;
-  text-align: center;
+.nav-container {
+  display: flex;
+  align-items: center;
 }
 
-.about {
-  background: #e0f7fa;
+.nav-container a {
+  color: white;
 }
 
-.projects {
-  background: #ffe0b2;
-}
-
-.resume {
-  background: #dcedc8;
-}
-
-.contact {
-  background: #f8bbd0;
-}
-
-.content {
-  max-width: 800px;
-  text-align: center;
-}
-
-h1, h2 {
-  margin-bottom: 20px;
+.nav-container button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  font-weight: bold;
 }
 
 a {
-  color: #0073e6;
-  text-decoration: none;
-  font-weight: bold;
+  color: coral;
 }
 
-a:hover {
-  text-decoration: underline;
+/* Flexbox for horizontal layout (image on left, text on right) */
+.intro {
+  display: flex;
+  align-items: flex-start; /* Aligns the image and text at the top */
+  padding-left: 20px;      /* Adds padding to the left of the container */
+}
+
+/* Ensures the image doesn't stretch and is aligned to the left */
+.intro img {
+  height: 400px;
+  margin-right: 20px; /* Adds spacing between the image and the text */
+}
+
+/* Ensures that text is stacked vertically while maintaining alignment */
+.intro .text-container {
+  display: flex;
+  flex-direction: column;  /* Stacks paragraphs vertically */
+  padding-right: 20px;     /* Adds padding to the right of the text */
+}
+
+.intro h4 {
+  margin: 10px 0;          /* Adds vertical margin between paragraphs */
+  font-size: 1.1em;        /* Optional: Adjusts font size for better readability */
+}
+
+/* Initial styles for the intro elements */
+.intro img, .intro .text-container {
+  opacity: 0;               /* Initially invisible */
+  transform: translateY(20px); /* Start position below */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth fade and move transition */
+}
+
+/* Add a class to trigger the fade-in and move-up effect */
+.intro.visible img, .intro.visible .text-container {
+  opacity: 1;               /* Fully visible */
+  transform: translateY(0); /* Move to original position */
 }
