@@ -324,3 +324,62 @@ a {
 .tracking {
   margin: 0; /* Remove unnecessary margins */
 }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#github-activity {
+    background-color: #121212;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-family: inherit;
+}
+
+#github-activity h2 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+#activity-list {
+    list-style: none;
+    padding: 0;
+}
+
+#activity-list li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+#activity-list a {
+    color: #58a6ff;
+    text-decoration: none;
+}
+
+#activity-list a:hover {
+    text-decoration: underline;
+}
+
+#activity-chart-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Adds spacing between the two sections */
+}
+
+#github-activity {
+    width: 50%;
+}
+
+#chart-container {
+    width: 50%;
+    max-width: 400px;
+}

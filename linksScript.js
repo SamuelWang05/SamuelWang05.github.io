@@ -23,5 +23,3 @@ document.addEventListener('DOMContentLoaded', function () {
       }, index * 200); // Stagger by 200ms per box
   });
 });
-
-GitHubCalendar(".calendar", "SamuelWang05", { responsive: true });
