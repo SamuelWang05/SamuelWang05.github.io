@@ -5,6 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Samuel Wang</title>
         <link rel="stylesheet" href="style.css">
+        <script src="linksScript.js" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css">
     </head>
     <body>
         <div class="nav-container">
@@ -16,36 +18,39 @@
             <a href="connect.html"><button>Connect with me!</button></a>
         </div>
 
-        <section class="featured">
+        <section class="featured fade-in">
             <h2>Future Projects</h2>
             <div class="card-container">
-                <div class="card">
+                <div class="card fade-in">
                     <h3>Ewok - A 32 bit RISC-V CPU</h3>
                     <p>RISC-V Processor written in Verilog (RV32I)</p>
                     <a href="https://github.com/SamuelWang05/Ewok" target="_blank"><button>View my Progress</button></a>
                 </div>
-                <div class="card">
-                    <h3>STM32 Drivers</h3>
-                    <p>Developing drivers in C for the STM32</p>
+                <div class="card fade-in">
+                    <h3>sysaphis</h3>
+                    <p>Autonomous maze-solving racing robot</p>
                     <a href="https://github.com/yourgithubusername/STM32-Drivers" target="_blank"><button>View my Progress</button></a>
                 </div>
-                <div class="card">
+                <div class="card fade-in">
+                    <h3>Custom FPGA PCB</h3>
+                    <p>My own custom FPGA PCB</p>
+                    <a href="https://github.com/yourgithubusername/Radio-Jammer" target="_blank"><button>View my Progress</button></a>
+                </div>
+                <div class="card fade-in">
                     <h3>RSA Crypto Algorithm</h3>
                     <p>RSA encryption algorithm implemented on FPGA</p>
                     <a href="https://github.com/SamuelWang05/RsaPython" target="_blank"><button>View my Progress</button></a>
                 </div>
-                <div class="card">
-                    <h3>Radio Jammer</h3>
-                    <p>Intercept RF comms</p>
-                    <a href="https://github.com/yourgithubusername/Radio-Jammer" target="_blank"><button>View my Progress</button></a>
-                </div>
             </div>
         </section>
 
-        <section class="tracking-section">
-            <h2 class="tracking">Tracking my habits</h2>
-            <h3>I created a heatmap to track my habits each day. The more habits I complete, the more green the box for that day is!</h3>
-            <h3><i>This is still under construction</i></h3>
+        <section class="tracking-section fade-in">
+            <h2 class="tracking">Track my progress!</h2>
+            <h3>My GitHub contribution calendar:</h3>
+                <div class="calendar">
+                    Loading GitHub contribution graph...
+                </div>
         </section>
+        <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
     </body>
 </html>
