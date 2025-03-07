@@ -7,12 +7,15 @@
         <link rel="stylesheet" href="style.css">
         <script src="linksScript.js" defer></script>
         <script src="pdfScript.js" defer></script>
+        <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css">
+        <script src="githubActivity.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="languagesChart.js" defer></script> 
     </head>
     <body>
         <div class="nav-container">
             <a href="index.html"><button>About Me</button></a>
             <a href="projectsHome.html"><button>Projects</button></a>
-            <a href="current.html"><button>What am I up to?</button></a>
             <a href="resume.html"><button>Resume</button></a>
             <a href="publications.html"><button>Publications</button></a>
             <a href="connect.html"><button>Connect with me!</button></a>
@@ -51,4 +54,43 @@
             <iframe id="pdfIframe" width="100%" height="500px"></iframe>
         </div>
     </div>
+
+    <!--Current projects section-->
+   <section class="featured fade-in">
+            <h2>Future Projects</h2>
+            <div class="card-container">
+                <div class="card fade-in">
+                    <h3>Ewok - A 32 bit RISC-V CPU</h3>
+                    <p>RISC-V Processor written in Verilog (RV32I)</p>
+                    <a href="https://github.com/SamuelWang05/Ewok" target="_blank"><button>View my Progress</button></a>
+                </div>
+                <div class="card fade-in">
+                    <h3>sysaphis</h3>
+                    <p>Autonomous maze-solving racing robot</p>
+                    <a href="https://github.com/yourgithubusername/STM32-Drivers" target="_blank"><button>View my Progress</button></a>
+                </div>
+                <div class="card fade-in">
+                    <h3>Custom FPGA PCB</h3>
+                    <p>My own custom FPGA PCB</p>
+                    <a href="https://github.com/yourgithubusername/Radio-Jammer" target="_blank"><button>View my Progress</button></a>
+                </div>
+                <div class="card fade-in">
+                    <h3>RSA Crypto Algorithm</h3>
+                    <p>RSA encryption algorithm implemented on FPGA</p>
+                    <a href="https://github.com/SamuelWang05/RsaPython" target="_blank"><button>View my Progress</button></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-section fade-in">
+            <div id="activity-chart-container">
+                <section id="github-activity">
+                    <h2>My Recent Activity</h2>
+                    <ul id="activity-list"></ul>
+                </section>
+                <div id="chart-container">
+                    <canvas id="languagesChart"></canvas>
+                </div>
+            </div>
+        </section>
 </html>
