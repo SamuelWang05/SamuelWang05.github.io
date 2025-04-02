@@ -90,6 +90,15 @@ display: block;
 opacity: 1;
 }
 
+#activity-list {
+    list-style: none; /* Removes default bullets */
+    padding-left: 0; /* Aligns items properly */
+}
+
+#activity-list li {
+    margin-bottom: 10px; /* Adds some spacing between events */
+}
+
 /* Social Media Section */
 #social-media {
 text-align: center;
