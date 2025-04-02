@@ -3,38 +3,26 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabLinks = document.querySelectorAll('.tab-link');
 
   function activateTab(tabName) {
-    // Remove active classes from all tabs and content sections
+    // Toggle active class on tab links
     tabLinks.forEach(link => {
-      if (link.getAttribute("href") === "#" + tabName) {
-        link.classList.add("active");
-      } else {
-        link.classList.remove("active");
-      }
+      link.classList.toggle("active", link.getAttribute("href") === "#" + tabName);
     });
-
+    // Toggle active class on tab content sections
     tabContents.forEach(content => {
-      if (content.id === tabName) {
-        content.classList.add("active");
-      } else {
-        content.classList.remove("active");
-      }
+      content.classList.toggle("active", content.id === tabName);
     });
   }
 
   function handleHashChange() {
-    // Get current hash (without the # symbol)
-    const hash = window.location.hash.substring(1);
-    if (hash) {
-      activateTab(hash);
-    } else {
-      // Default tab if no hash present
-      activateTab("about");
+    let hash = window.location.hash.substring(1);
+    if (!hash) {
+      // Set default tab to "about" and update the URL
+      hash = "about";
+      history.replaceState(null, "", "#about");
     }
+    activateTab(hash);
   }
 
-  // Listen for hash changes
   window.addEventListener("hashchange", handleHashChange);
-
-  // Activate the correct tab on page load
-  handleHashChange();
+  handleHashChange(); // Set the tab on initial load
 });
