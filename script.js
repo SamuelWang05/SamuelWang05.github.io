@@ -1,5 +1,24 @@
-window.onload = function() {
-  // Wait for the page to load completely, then add the 'visible' class to the .intro element
-  const intro = document.querySelector('.intro'); // Select the .intro element
-  intro.classList.add('visible');  // Add the 'visible' class to trigger the fade-in effect
-};
+document.addEventListener('DOMContentLoaded', function () {
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const tabContents = document.querySelectorAll('.tab-content');
+  
+    tabLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetTab = this.getAttribute('data-tab');
+  
+        tabLinks.forEach(function (item) {
+          item.classList.remove('active');
+        });
+        tabContents.forEach(function (item) {
+          item.classList.remove('active');
+        });
+  
+        this.classList.add('active');
+        const targetContent = document.getElementById(targetTab);
+        targetContent.classList.add('active');
+      });
+    });
+  });
+  
+  
