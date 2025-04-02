@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const tabName = this.getAttribute("href").substring(1);
       activateTab(tabName);
       // Update the URL hash without jumping
-      history.pushState(null, "", window.location.pathname + window.location.search + "#" + tabName);
+      history.pushState(null, "", "#" + tabName);
       window.scrollTo(0, 0); // Keep the page at the top
     });
   });
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     // If no valid hash, default to "about" but remove the hash from URL so the page loads at the top.
     activateTab("about");
-    history.replaceState(null, "", window.location.pathname + window.location.search);
+    history.replaceState(null, "", "#about");
   }
 
   // Listen for manual hash changes (if someone changes it in the address bar)
