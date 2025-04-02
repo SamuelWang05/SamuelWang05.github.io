@@ -1,37 +1,40 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const tabLinks = document.querySelectorAll('.tab-link');
+document.addEventListener("DOMContentLoaded", function () {
   const tabContents = document.querySelectorAll('.tab-content');
+  const tabLinks = document.querySelectorAll('.tab-link');
 
   function activateTab(tabName) {
-      // Remove 'active' class from all tabs and contents
-      tabLinks.forEach(link => link.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-
-      // Find the clicked tab and its content
-      const targetLink = document.querySelector(`[data-tab="${tabName}"]`);
-      const targetContent = document.getElementById(tabName);
-
-      if (targetLink && targetContent) {
-          targetLink.classList.add('active');
-          targetContent.classList.add('active');
-          history.pushState(null, '', `#${tabName}`); // Update URL without reloading
+    // Remove active classes from all tabs and content sections
+    tabLinks.forEach(link => {
+      if (link.getAttribute("href") === "#" + tabName) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
       }
+    });
+
+    tabContents.forEach(content => {
+      if (content.id === tabName) {
+        content.classList.add("active");
+      } else {
+        content.classList.remove("active");
+      }
+    });
   }
 
-  // Handle tab clicks
-  tabLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-          e.preventDefault();
-          const targetTab = this.getAttribute('data-tab');
-          activateTab(targetTab);
-      });
-  });
-
-  // Check URL hash on load (to persist selected tab)
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
+  function handleHashChange() {
+    // Get current hash (without the # symbol)
+    const hash = window.location.hash.substring(1);
+    if (hash) {
       activateTab(hash);
-  } else {
-      activateTab('about'); // Default tab
+    } else {
+      // Default tab if no hash present
+      activateTab("about");
+    }
   }
+
+  // Listen for hash changes
+  window.addEventListener("hashchange", handleHashChange);
+
+  // Activate the correct tab on page load
+  handleHashChange();
 });
