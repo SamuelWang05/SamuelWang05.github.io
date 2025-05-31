@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samuel Wang - Personal Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Hi, I'm Samuel!</h1>
+    <h3>
+      I'm a computer engineering researcher interested in FPGAs, low-level software development, and embedded systems
+    </h3>
+  </header>
+
+  <section id="social-media">
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/samuel-wang-506a9029a/" target="_blank" class="social-link">
+        <img src="images/linkedin.svg" alt="LinkedIn">
+        LinkedIn
+      </a>
+      <a href="https://github.com/SamuelWang05" target="_blank" class="social-link">
+        <img src="images/Octicons-mark-github.svg" alt="GitHub">
+        Github
+      </a>
+      <a href="https://www.youtube.com/@CircuitHacker" target="_blank" class="social-link">
+        <img src="images/youtube.svg" alt="YouTube">
+        YouTube
+      </a>
+    </div>
+  </section>  
+
+  <nav>
+    <ul>
+      <li><a href="#about" class="tab-link">About</a></li>
+      <li><a href="#projects" class="tab-link">Projects</a></li>
+      <li><a href="#resume" class="tab-link">Resume</a></li>
+    </ul>
+  </nav> 
+
+  <main>
+    <section id="about" class="tab-content">
+      <h2>About Me</h2>
+      <header>
+        <p>
+          I'm an Electrical and Computer Engineering major at Vanderbilt University with concentrations in Embedded Computing, Cyber-Physical Systems, and Microcontrollers. I'm also minoring in Computer Science.
+        </p>
+        <p>
+          I currently do research involving the effects of radiation to electronic devices for space and defense applications, where I design the PCBs for test ICs, as well as run characterization tests. I'm also involved in a variety of student organizations - most notably the Amateur Radio Club and SyBBURE (a research fellowship program). More details about my research and the student orgs can be found on my resume.
+        </p>
+        <p>
+          As mentioned previously, I'm interested in the fields of FPGAs, low-level software development, and embedded systems but love pretty much every aspect of ECE. I spend my free time diving into these areas by creating lots of different projects, and tinkering with all kinds of electronics. Check out my projects and Github to see more.
+        </p>
+        <p>
+          Some other fields that I'm interested in aside from ECE are cybersecurity, game development, and video production/editing.
+        </p>
+        <br>
+        <p>
+          Please reach out on my LinkedIn for my email address!
+        </p>
+      </header>
+    </section>
+
+    <section id="projects" class="tab-content">
+      <h2>Projects</h2>
+      
+      <div class="project">
+        <img src="images/chip8.jpeg" alt="Chip 8 Image" class="project-img left">
+        <div class="project-info right">
+          <h3>Chip 8 Emulator</h3>
+          <p>
+            C++ based emulator that interprets and runs CHIP-8 programs. Handles opcode decoding, graphics rendering, and memory management 
+          </p>
+          <div class="project-tags">
+            <span>C++</span>
+            <span>SDL2</span>
+            <span>Emulator</span>
+            <span>Game Dev</span>
+            <a href="https://github.com/SamuelWang05/Chip-8-Emulator" target="_blank" class="github-link">
+              <img src="images/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project">
+        <img src="images/youtube_automation.webp" alt="YouTube Automation Image" class="project-img right">
+        <div class="project-info left">
+          <h3>Automated YouTube Video Generator</h3>
+          <p>
+            Python-based tool that scrapes top Reddit posts to automatically generate YouTube Shorts, complete with subtitles, background video, and voiceover
+          </p>
+          <div class="project-tags">
+            <span>Python</span>
+            <span>Reddit API</span>
+            <span>Selenium</span>
+            <span>moviepy</span>
+            <span>pyttsx3</span>
+            <a href="https://github.com/SamuelWang05/AutomatedYouTubeChannel/tree/main" target="_blank" class="github-link">
+              <img src="images/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="tracking-section">
+        <div id="activity-chart-container">
+            <section id="github-activity">
+                <h2>My Recent Activity:</h2>
+                <ul id="activity-list">Loading...</ul>
+            </section>
+            <div id="chart-container">
+                <canvas id="languagesChart"></canvas>
+            </div>
+        </div>
+      </section>
+
+    </section>      
+
+    <section id="resume" class="tab-content">
+      <h3><b><u>Education</u></b></h3>
+      <p><b>Vanderbilt University</b></p>
+      <p><b>Bachelor of Engineering</b> Electrical and Computer Engineering; <b>Minor</b> Computer Science</p>
+      <p><b>GPA:</b> 3.95/4.00, Dean’s List (3x) </p>
+      <p><b>Relevant Coursework:</b> Computer Architecture, Microcontrollers, Electronics, Digital Signal Processing, Software Design Patterns, Statistics</p>
+      
+      <h3><b><u>Professional Experience</u></b></h3>
+      <p><b>Incoming @ General Motors</b></p>
+      <ul>
+        <li><p>Manufacturing Controls Intern</p></li>
+      </ul>
+
+      <p><b>Vanderbilt Institute for Space and Defense Electronics Lab</b></bp>
+      <ul>
+        <li><p>Develop PCBs (4 layer, mixed signal) for custom test ICs at advanced transistor nodes</p></li>
+        <li><p>Developed Python scripts to automate data collection and parsing to investigate shift register functionality at low supply voltages, improving manual processing time by 25 minutes</p></li>
+      </ul>
+
+      <p><b>The SyBBURE Searle Research and Design Program</b></p>
+      <ul>
+        <li><p>Implemented an audio-responsive system by interfacing an LED matrix with a Raspberry Pi, using EEG brainwave data to generate mood-specific visualizations and music playback</p></li>
+        <li><p>Enhanced user experience by integrating Spotify API to enable audio playback linked to mood-driven playlists</p></li>
+        <li><p>Presented research poster at the 2024 SyBBURE summer symposium to a 40+ audience</p></li>
+      </ul>
+
+      <p><b>Vanderbilt Undergraduate School of Engineering - Research Intern</b></p>
+      <ul>
+        <li><p>Assessed manufacturing variations at the 3nm bulk-FinFET node by measuring ring oscillator frequencies on 50+ devices at 3 voltage levels, improving production reliability</p></li>
+        <li><p>Developed measurement techniques enabling accurate reading of shift register data at sub-450 mV input voltages, enhancing functionality for low-power applications</p></li>
+      </ul>
+      
+      <h3><b><u>Activities</u></b></h3>
+      <p><b>Vanderbilt Amateur Radio Club</b></p>
+      <ul>
+        <li><p>Assembled a low-cost, directional Yagi antenna for transmitter hunting, optimizing signal accuracy and reducing tracking time for field operations</p></li>
+      </ul>
+      
+      <h3><b><u>Skills</u></b></h3>
+      <p><b>Programming: </b> Java, C++, Arduino (C++), SystemVerilog, Python, R, MATLAB</p>
+      <p><b>Tools: </b>  Altium, KiCad, EasyEDA, LTSpice</p>
+
+      <br>
+      <p>Last updated: Nov. 16, 2024</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

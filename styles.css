@@ -1,0 +1,221 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    color: #333;
+}
+
+
+header {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    }
+
+header p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+#about h2 {
+    margin-bottom: -2rem; /* Adjust this value as needed */
+}
+
+h3 {
+    font-weight: normal;
+}
+
+nav {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 2rem;
+}
+
+nav ul li a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+nav ul li a::after {
+content: '';
+position: absolute;
+width: 100%;
+height: 2px;
+bottom: 0;
+left: 0;
+background-color: #333;
+transform: scaleX(0);
+transform-origin: center;
+transition: transform 0.3s ease;
+}
+
+nav ul li a:hover::after,
+nav ul li a.active::after { 
+transform: scaleX(1);
+}  
+
+main {
+max-width: 800px;
+margin: 0 auto;
+padding: 0 1rem;
+}
+
+.tab-content {
+display: none;
+opacity: 0;
+transition: opacity 0.5s ease-in-out;
+max-width: 800px;
+margin: 0 auto;
+padding: 0 1rem;
+text-align: justify;
+line-height: 1.6;
+}
+
+.tab-content.active {
+display: block;
+opacity: 1;
+}
+
+#activity-list {
+    list-style: none; /* Removes default bullets */
+    padding-left: 0; /* Aligns items properly */
+}
+
+#activity-list li {
+    margin-bottom: 10px; /* Adds some spacing between events */
+}
+
+/* Social Media Section */
+#social-media {
+text-align: center;
+margin-top: -1rem; /* Reducing space between the paragraph and social media icons */
+margin-bottom: 2rem;
+}
+
+.social-links {
+display: flex;
+justify-content: center;
+gap: 1.5rem; /* Space between boxes */
+flex-wrap: wrap;
+margin-top: 0.5rem; /* Reduced space */
+}
+
+.social-link {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+padding: 0.75rem 1.5rem;
+border-radius: 6px;
+text-decoration: none;
+font-weight: bold;
+font-size: 1rem;
+color: #000; /* Default text color is black */
+background-color: #fff;
+border: 2px solid #000;
+transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.social-link img {
+width: 20px;
+height: 20px;
+filter: invert(0); /* Ensures the icons remain black */
+transition: filter 0.3s ease;
+}
+
+.social-link:hover {
+background-color: #000;
+color: #fff; /* Text color turns white on hover */
+}
+
+.social-link:hover img {
+filter: invert(1); /* Inverts icon colors on hover */
+}
+
+.social-link:active {
+transform: scale(0.95);
+}
+
+
+/* Projects Section */
+#projects {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.project-img {
+  width: 45%;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.project-info {
+  width: 50%;
+}
+
+.project-info h3 {
+  margin: 0 0 0.5rem;
+}
+
+.project-info p {
+  margin-bottom: 1rem;
+}
+
+/* Alternating Layout */
+.project .left {
+  order: -1; /* Moves image to the left */
+}
+
+.project .right {
+  order: 1; /* Moves image to the right */
+}
+
+/* Skill Tags */
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.project-tags span {
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* GitHub Icon */
+.github-link img {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  transition: transform 0.2s ease-in-out;
+}
+
+.github-link:hover img {
+  transform: scale(1.1);
+}
