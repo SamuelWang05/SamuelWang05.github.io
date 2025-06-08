@@ -4,67 +4,86 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function activateTab(tabName) {
     tabContents.forEach(content => {
-      content.classList.toggle("active", content.id === tabName);
+      const isTarget = content.id === tabName;
+
+      content.classList.toggle("active", isTarget);
+      content.classList.toggle("visible", false); // reset fade-in
+
+      if (isTarget) {
+        // Allow a reflow so animation restarts
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            content.classList.add("visible");
+          });
+        });
+      }
     });
+
     tabLinks.forEach(link => {
       link.classList.toggle("active", link.getAttribute("href") === "#" + tabName);
     });
   }
 
-  // Handle clicks on tab links
+  // Handle tab link clicks
   tabLinks.forEach(link => {
-    link.addEventListener("click", function(e) {
+    link.addEventListener("click", function (e) {
       e.preventDefault();
       const tabName = this.getAttribute("href").substring(1);
       activateTab(tabName);
-      history.pushState(null, "", "#" + tabName); // Update URL without scrolling
+      history.pushState(null, "", "#" + tabName);
     });
   });
 
-  // Check if there's a hash in the URL on page load
-  let initialHash = window.location.hash.substring(1);
+  // Scroll to top on load
+  window.scrollTo(0, 0);
+
+  // Initial fade-in for top-level sections
+  document.querySelectorAll(".fade-in").forEach((el, index) => {
+    setTimeout(() => {
+      el.classList.add("visible");
+    }, index * 200); // Staggered fade-in
+  });
+
+  // Activate default or hash-specified tab
+  const initialHash = window.location.hash.substring(1);
   if (initialHash && document.getElementById(initialHash)) {
     activateTab(initialHash);
   } else {
-    activateTab("about"); // Default tab on first load
-    history.replaceState(null, "", " "); // Remove hash without scrolling
+    activateTab("about");
+    history.replaceState(null, "", " ");
   }
 
-  // Handle manual hash changes (if user edits the URL)
+  // Listen for URL hash changes
   window.addEventListener("hashchange", function () {
     const newHash = window.location.hash.substring(1);
     if (newHash && document.getElementById(newHash)) {
       activateTab(newHash);
     }
   });
-
-  // Ensure the page starts at the top on initial load
-  window.scrollTo(0, 0);
 });
 
+// GitHub activity section (unchanged)
 document.addEventListener("DOMContentLoaded", function () {
-  const username = "SamuelWang05"; // Replace with your GitHub username
+  const username = "SamuelWang05";
   const activityList = document.getElementById("activity-list");
 
   async function fetchGitHubActivity() {
     try {
       const response = await fetch(`https://api.github.com/users/${username}/events/public`);
       if (!response.ok) throw new Error("Failed to fetch GitHub activity.");
-      
+
       const data = await response.json();
-      activityList.innerHTML = ""; // Clear previous content
+      activityList.innerHTML = "";
 
-      data.slice(0, 4).forEach(event => { // Limit to 4 events
-        let emoji = "🤖"; // Default unknown event emoji
-        let actionText = "Updated"; // Default action
+      data.slice(0, 4).forEach(event => {
+        let emoji = "🤖";
+        let actionText = "Updated";
 
-        // Extract repository name (removes "username/")
         const repoName = event.repo.name.split("/")[1];
         const repoURL = `https://github.com/${event.repo.name}`;
 
-        // Determine event type and corresponding emoji
         if (event.type === "PushEvent") {
-          emoji = "🎯"; // Bullseye for push events
+          emoji = "🎯";
           actionText = "Pushed to";
         } else if (event.type === "PullRequestEvent") {
           emoji = "🔀";
@@ -77,11 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
           actionText = "Commented on an issue in";
         }
 
-        // Create list item
         const listItem = document.createElement("li");
-        listItem.style.listStyleType = "none"; // Remove bullet points
+        listItem.style.listStyleType = "none";
         listItem.innerHTML = `${emoji} ${actionText} <a href="${repoURL}" target="_blank">${repoName}</a>`;
-
         activityList.appendChild(listItem);
       });
     } catch (error) {
