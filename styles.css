@@ -211,18 +211,6 @@ main {
   font-weight: bold;
 }
 
-/* GitHub Icon */
-.github-link img {
-  width: 24px;
-  height: 24px;
-  vertical-align: middle;
-  transition: transform 0.2s ease-in-out;
-}
-
-.github-link:hover img {
-  transform: scale(1.1);
-}
-
 /* Fade-in for top-level elements */
 .fade-in {
   opacity: 0;
@@ -233,4 +221,56 @@ main {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 🔹 New tighter paragraph class for experience section */
+p.tight {
+  margin-bottom: 0.25rem; /* smaller gap under paragraph */
+}
+
+/* Single-spaced bullets in resume section */
+#resume ul {
+  margin-top: 0.25rem;   /* tighten space above list */
+  margin-bottom: 0.25rem; /* tighten space below list */
+}
+
+#resume ul li {
+  margin-bottom: 0.15rem; /* very small gap between bullets */
+}
+
+#resume ul li p {
+  margin: 0.01; 
+  line-height: 1.2; /* tighter line spacing inside each bullet */
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* space between icon and text */
+  background-color: #fff; /* default white */
+  color: #000; /* default black text */
+  padding: 5px 12px;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  border: 1.9px solid #000; /* optional: black border to match header buttons */
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.project-link img {
+  width: 16px;
+  height: 16px;
+  filter: invert(0); /* black icon by default */
+  transition: filter 0.3s ease;
+}
+
+.project-link:hover {
+  background-color: #000; /* hover: black background */
+  color: #fff; /* hover: white text */
+  transform: translateY(-2px);
+}
+
+.project-link:hover img {
+  filter: invert(1); /* hover: white icon */
 }

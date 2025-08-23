@@ -24,9 +24,9 @@
         <img src="images/Octicons-mark-github.svg" alt="GitHub">
         Github
       </a>
-      <a href="https://www.youtube.com/@HomebrewKernel" target="_blank" class="social-link">
-        <img src="images/youtube.svg" alt="YouTube">
-        YouTube
+      <a href="https://samwangblog.blogspot.com/" target="_blank" class="social-link">
+        <img src="images/blogger.svg" alt="Blog">
+        Blog 
       </a>
     </div>
   </section>  
@@ -77,8 +77,9 @@
             <span>SDL2</span>
             <span>Emulator</span>
             <span>Game Dev</span>
-            <a href="https://github.com/SamuelWang05/Chip-8-Emulator" target="_blank" class="github-link">
+            <a href="https://github.com/SamuelWang05/Chip-8-Emulator" target="_blank" class="project-link">
               <img src="images/Octicons-mark-github.svg" alt="GitHub">
+              Link
             </a>
           </div>
         </div>
@@ -97,8 +98,9 @@
             <span>Selenium</span>
             <span>moviepy</span>
             <span>pyttsx3</span>
-            <a href="https://github.com/SamuelWang05/AutomatedYouTubeChannel/tree/main" target="_blank" class="github-link">
+            <a href="https://github.com/SamuelWang05/AutomatedYouTubeChannel/tree/main" target="_blank" class="project-link">
               <img src="images/Octicons-mark-github.svg" alt="GitHub">
+              Link
             </a>
           </div>
         </div>
@@ -119,49 +121,84 @@
     </section>      
 
     <section id="resume" class="tab-content">
-      <h3><b><u>Education</u></b></h3>
+      <h3><b>Education</b></h3>
+      <hr>
       <p><b>Vanderbilt University</b></p>
       <p><b>Bachelor of Engineering</b> Electrical and Computer Engineering; <b>Minor</b> Computer Science</p>
-      <p><b>GPA:</b> 3.95/4.00, Dean’s List (3x) </p>
-      <p><b>Relevant Coursework:</b> Computer Architecture, Microcontrollers, Electronics, Digital Signal Processing, Software Design Patterns, Statistics</p>
+      <p><b>GPA:</b> 3.96/4.00, Dean’s List (4x) </p>
+      <p><b>Relevant Coursework:</b> Operating Systems, Microcontrollers, Computer Architecture, VLSI Design, Digital Signal Processing, Microelectronics, FPGA Design, Data Structures & Algorithms, Discrete Math, Electronics, Analog Circuits </p>
       
-      <h3><b><u>Professional Experience</u></b></h3>
-      <p><b>Incoming @ General Motors</b></p>
+      <h3><b>Professional Experience</b></h3>
+      <hr>
+      <p class="tight"><b>General Motors</b></p>
+      <i>Controls Engineer Intern</i>
       <ul>
-        <li><p>Manufacturing Controls Intern</p></li>
+        <li><p>Developed control logic for manufacturing equipment validation by integrating a CAN-based communication stack for a Programmable Logic Controller (PLC), increasing validation testing efficiency by 65%</p></li>
+        <li><p>Developed a Python GUI application for real-time PLC data analysis, providing live graphical data visualization and accelerating debugging in critical manufacturing environments by hours</p></li>
       </ul>
 
-      <p><b>Vanderbilt Institute for Space and Defense Electronics Lab</b></p>
+      <p class="tight"><b>Vanderbilt Institute for Space and Defense Electronics Lab</b></p>
+      <i>Undergraudate Research Assistant</i>
       <ul>
-        <li><p>Develop PCBs (4 layer, mixed signal) for custom test ICs at advanced transistor nodes</p></li>
-        <li><p>Developed Python scripts to automate data collection and parsing to investigate shift register functionality at low supply voltages, improving manual processing time by 25 minutes / device</p></li>
+        <li><p>Wrote Python scripts to automate error-rate analysis of shift register outputs from FPGA-collected data, reducing manual processing time by 80%</p></li>
+        <li><p>Designed a Python-based telemetry data pipeline over WiFi, using Wireshark and Pandas to analyze real-time metrics and identify root causes of radiation-induced faults in drone systems</p></li>
+        <li><p>Led 3-member team in the design of a multi-layer, mixed-signal PCB with custom footprints for 3nm FinFET CMOS test ICs, enabling high energy electron radiation effects research</p></li>
+        <li><p>Designed PCB for ribbon cable testing to enhance data acquisition reliability, reducing validation time by 80%</p></li>
+        <li><p>Presented research poster to a 400+ audience at the IEEE Nuclear & Space Radiation Effects Conference</p></li>
       </ul>
 
-      <p><b>The SyBBURE Searle Research and Design Program</b></p>
+      <p class="tight"><b>Vanderbilt Undergraduate School of Engineering</b></p>
+      <i>Research Intern</i>
       <ul>
-        <li><p>Implemented an audio-responsive system by interfacing an LED matrix with a Raspberry Pi, using EEG brainwave data to generate mood-specific visualizations and music playback</p></li>
-        <li><p>Enhanced user experience by integrating Spotify API to enable audio playback linked to mood-driven playlists</p></li>
-        <li><p>Presented research poster at the 2024 SyBBURE summer symposium to a 40+ audience</p></li>
+        <li><p>Developed measurement techniques enabling accurate reading of shift register data at sub-nominal input voltages, enhancing functionality for low-power applicationsy</p></li>
+        <li><p>Wrote comprehensive documentation on experimental setup and data analysis processes, aiding two additional experiments, and streamlining collaboration with Git for version control</p></li>
       </ul>
 
-      <p><b>Vanderbilt Undergraduate School of Engineering - Research Intern</b></p>
+      <h3><b>Projects</b></h3>
+      <hr>
+      <p><b>Autonomous Vehicle Sensor Fusion Simulator</b> | C++</p>
       <ul>
-        <li><p>Assessed manufacturing variations at the 3nm bulk-FinFET node by measuring ring oscillator frequencies on 50+ devices at 3 voltage levels, improving production reliability</p></li>
-        <li><p>Developed measurement techniques enabling accurate reading of shift register data at sub-450 mV input voltages, enhancing functionality for low-power applications</p></li>
+        <li><p>Built an autonomous vehicle simulator by applying a Kalman filter to synthetic LiDAR, radar, and camera inputs, achieving 98% object association accuracy</p></li>
+      </ul>
+      <p><b>Real-time Embedded Audio Equalizer</b> | C, RTOS, STM32</p>
+      <ul>
+        <li><p>Built a real-time embedded audio visualizer system using RTOS with an STM32F4 microcontroller, applying 3-band IIR filtering with ~[X]ms latency</p></li>
+        <li><p>Integrated adjustable potentiometers and LCD display with ADC and GPIO peripherals to dynamically control equalizer gain bands and visualize output, achieving ~[Z]ms input-to-output system response time</p></li>
+      </ul>
+      <p><b>EEG Brainwave Visualizer</b> | Python, Raspberry Pi</p>
+      <ul>
+        <li><p>Collaborated in team of 4 to implement real-time EEG brainwave processing on a Raspberry Pi to generate mood-specific visualizations on an LED matrix and adaptive music playback</p></li>
+        <li><p>Used the pybluez Python library to filter bluetooth data from the EEG sensor, achieving 85\% accuracy in mood associativity</p></li>
+        <li><p>Hackathon winner for top project in innovative hardware-software design</p></li>
+      </ul>
+      <p><b>Chip 8 Emulator</b> | C++, CPU Design, Emulator</p>
+      <ul>
+        <li><p>Implemented a Chip-8 interpreter in C++ by decoding and executing 35+ opcodes, managing memory, registers, timers, and input to recreate retro game behavior</p></li>
+        <li><p>Utilized SDL2 library to build a graphical frontend for rendering memory-mapped graphics and handling real-time, event-driven user input</p></li>
+      </ul>
+      <p><b>Reddit Stores - Automated YouTube Video Editor</b></p>
+      <ul>
+        <li><p>Developed a Python automation pipeline using the Reddit API to fetch top posts into .mp4 videos, enabling media generation in seconds</p></li>
+        <li><p>Utilized moviepy, pyttsx3, and Selenium libraries to automatically generate voiceovers and edit videos</p></li>
+        <li><p>Published 16 videos to YouTube, generating nearly 1k views and achieving a 96\% upvote rate, validating the design</p></li>
       </ul>
       
-      <h3><b><u>Activities</u></b></h3>
+      <h3><b>Activities</b></h3>
+      <hr>
       <p><b>Vanderbilt Amateur Radio Club</b></p>
       <ul>
         <li><p>Assembled a low-cost, directional Yagi antenna for transmitter hunting, optimizing signal accuracy and reducing tracking time for field operations</p></li>
+        <li><p>Collaborated with team of 4 to design PCB in KiCAD to generate carrier wave signals in the AM frequency band for a miniature radio transmitter</p></li>
       </ul>
       
-      <h3><b><u>Skills</u></b></h3>
-      <p><b>Programming: </b> Java, C++, Arduino (C++), SystemVerilog, Python, R, MATLAB</p>
-      <p><b>Tools: </b>  Altium, KiCad, EasyEDA, LTSpice</p>
+      <h3><b>Skills</b></h3>
+      <hr>
+      <p><b>Programming: </b> C/C++, Python, Assembly (AVR), Verilog (GTKWave, Icarus Verilog), Java, Matlab</p>
+      <p><b>Software Tools: </b>  Git, LTSpice, FreeRTOS, STM32 Cube IDE, Cadence, Wireshark, KiCAD</p>
+      <p><b>Hardware Tools: </b> Oscilloscope, Logic Analyzer, FPGAs</p>
 
       <br>
-      <p>Last updated: Nov. 16, 2024</p>
+      <p>Last updated: Aug. 22, 2025</p>
     </section>
   </main>
 
