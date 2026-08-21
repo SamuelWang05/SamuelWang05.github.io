@@ -67,14 +67,19 @@
   }
   .brand .dot{color:var(--forest-soft); font-family:'JetBrains Mono',monospace; letter-spacing:0.14em; margin-left:0.05em;}
 
-  nav.tabs{display:flex; gap:0.25rem; background:var(--cream-2); padding:0.3rem; border-radius:999px;}
+  nav.tabs{position:relative; display:flex; gap:0.25rem; background:var(--cream-2); padding:0.3rem; border-radius:999px;}
+  .tab-indicator{
+    position:absolute; top:0; left:0; z-index:0;
+    background:var(--forest); border-radius:999px;
+    transition:transform .32s cubic-bezier(.65,.05,.36,1), width .32s cubic-bezier(.65,.05,.36,1), height .32s ease;
+  }
   nav.tabs button{
-    all:unset; cursor:pointer;
+    all:unset; cursor:pointer; position:relative; z-index:1;
     font-family:'JetBrains Mono',monospace; font-size:0.78rem; font-weight:500;
     padding:0.5rem 1.05rem; border-radius:999px; color:var(--ink-soft);
-    transition:background .25s ease, color .25s ease;
+    transition:color .25s ease;
   }
-  nav.tabs button.active{background:var(--forest); color:var(--cream);}
+  nav.tabs button.active{color:var(--cream);}
   nav.tabs button:hover:not(.active){color:var(--ink);}
 
   .top-actions{display:flex; align-items:center; gap:0.9rem;}
@@ -90,9 +95,13 @@
 
   /* ---------- Layout ---------- */
   main{max-width:880px; margin:0 auto; padding:0 2rem;}
-  .view{display:none; animation:rise .5s ease both;}
+  .view{display:none;}
   .view.active{display:block;}
-  @keyframes rise{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+  /* Reveal — elements fade/slide in top to bottom, staggered, instead of the whole block moving as one */
+  .reveal{opacity:0; transform:translateY(-14px);}
+  .reveal.show{animation:fadeDown .55s ease forwards;}
+  @keyframes fadeDown{from{opacity:0; transform:translateY(-14px);} to{opacity:1; transform:translateY(0);}}
 
   /* Hand-drawn rule — signature element, replaces straight borders (gentle marker wobble) */
   .hand-rule{
@@ -286,7 +295,9 @@
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
-    .view{animation:none;}
+    .reveal{opacity:1; transform:none;}
+    .reveal.show{animation:none;}
+    .tab-indicator{transition:none;}
   }
 </style>
 </head>
@@ -295,6 +306,7 @@
 <div class="topbar">
   <a href="#about" class="brand">Samuel Wang <span class="dot">&lt;/&gt;</span></a>
   <nav class="tabs">
+    <span class="tab-indicator" id="tabIndicator"></span>
     <button data-tab="about" class="active">About</button>
     <button data-tab="projects">Projects</button>
     <button data-tab="resume">Resume</button>
@@ -311,7 +323,7 @@
 
   <!-- ABOUT -->
   <section id="about" class="view active">
-    <div class="hero">
+    <div class="hero reveal">
       <h1>Hi, I'm Samuel!</h1>
       <p class="lede">I love learning new things and doing cool stuff :)</p>
       <div class="social-row">
@@ -324,19 +336,19 @@
     <div class="hand-rule"></div>
 
     <div class="about-body">
-      <p>I'm an Electrical and Computer Engineering major at <strong>Vanderbilt University</strong>, concentrating in embedded computing, cyber-physical systems, and microcontrollers, with a minor in Computer Science.</p>
-      <p>Right now I'm a part-time intern on the Analog/Mixed-Signal CAD team at <strong>Marvell</strong> as well as an undergraduate research assistant in <strong>Dr. Bhuva's advanced technology lab</strong>. I'm also a research fellow at the <strong>SyBBURE Searle Undergraduate Research Program</strong>, which gives undergraduate students funding for research (conference travel, lab expenses, etc.)</p>
-      <p>Outside of work, I love swimming, running, reading, video editing, and learning new things!</p>
-      <p>Feel free to reach out! <i>(Contact info can be found in my LinkedIn.)</i></p>
+      <p class="reveal">I'm an Electrical and Computer Engineering major at <strong>Vanderbilt University</strong>, concentrating in embedded computing, cyber-physical systems, and microcontrollers, with a minor in Computer Science.</p>
+      <p class="reveal">Right now I'm a part-time intern on the Analog/Mixed-Signal CAD team at <strong>Marvell</strong> as well as an undergraduate research assistant in <strong>Dr. Bhuva's advanced technology lab</strong>. I'm also a research fellow at the <strong>SyBBURE Searle Undergraduate Research Program</strong>, which gives undergraduate students funding for research (conference travel, lab expenses, etc.)</p>
+      <p class="reveal">Outside of work, I love swimming, running, reading, video editing, and learning new things!</p>
+      <p class="reveal">Feel free to reach out! <i>(Contact info can be found in my LinkedIn.)</i></p>
     </div>
 
     <!-- Photo collage -->
-    <div class="collage-wrap">
+    <div class="collage-wrap reveal">
       <figure class="cphoto" style="--x:16%; --y:22%; --w:150px; --ar:3/4; --rot:8deg; z-index:2;" data-title="Reading" data-desc="Love sci-fi books, but open to anything! Currently reading: 'And Then There Were None' by Agatha Christie">
         <img src="images/collage-read.jpg" alt="Reading" onerror="this.parentElement.classList.add('ph-fallback')">
       </figure>
 
-      <figure class="cphoto" style="--x:20%; --y:78%; --w:148px; --ar:4/3; --rot:-7deg; z-index:2;" data-title="Video editing" data-desc="Started off making music videos in high school, but now I have a few different channels. In total ~250k views across all of them. As they say, 'Subscribe!'">
+      <figure class="cphoto" style="--x:20%; --y:78%; --w:148px; --ar:4/3; --rot:-7deg; z-index:2;" data-title="Video editing" data-desc="Started off making music videos in high school, but now post across a few different YouTube channels. In total > 250k views across all of them.">
         <img src="images/collage-edit.png" alt="Video editing setup" onerror="this.parentElement.classList.add('ph-fallback')">
       </figure>
 
@@ -356,23 +368,16 @@
         <img src="images/headshot.jpg" alt="Headshot of Samuel Wang" onerror="this.parentElement.classList.add('ph-fallback')">
       </figure>
     </div>
-
-    <div class="hand-rule" style="margin-top:1rem;"></div>
-
-    <div class="activity-block">
-      <h2>Recent on GitHub</h2>
-      <ul id="activity-list"><li>Loading recent activity…</li></ul>
-    </div>
   </section>
 
   <!-- PROJECTS -->
   <section id="projects" class="view">
-    <div class="section-head">
+    <div class="section-head reveal">
       <h2>Projects</h2>
       <p>I always have a few more I'm working on, but these are some of my favorites!</p>
     </div>
 
-    <div class="project">
+    <div class="project reveal">
       <div class="project-img-wrap"><img src="images/cpu.png" alt="Silicon die photo"></div>
       <div class="project-info">
         <h3>RISC-V RV32I Processor</h3>
@@ -387,7 +392,29 @@
 
     <div class="hand-rule"></div>
 
-    <div class="project reverse">
+    <div class="project reverse reveal">
+      <div class="project-img-wrap"><img src="images/vlsi_project.png" alt="STM32 audio hardware"></div>
+      <div class="project-info">
+        <h3>8x8 Radix-4 Booth Multiplier</h3>
+        <p>Designed and verified an 8-bit Radix-4 Booth multiplier from schematic to full-custom layout in Cadence Virtuoso, cutting partial products by 50% with a carry-lookahead adder for summation. Clean on DRC/LVS, with post-layout timing validated through parasitic extraction.</p>
+        <div class="project-tags"><span>Cadence Virtuoso</span><span>VLSI Final Project</span></div>
+      </div>
+    </div>
+
+    <div class="hand-rule"></div>
+
+    <div class="project reveal">
+      <div class="project-img-wrap"><img src="images/minesweeper.jpg" alt="Automation illustration"></div>
+      <div class="project-info">
+        <h3>FPGA-Based Minesweeper Engine</h3>
+        <p>A hardware-accelerated Minesweeper implementation built entirely in VHDL — FSM controller, BRAM-backed grid storage, parallel combinational adjacency logic, and an LFSR for mine placement. No CPU involved, just RTL.</p>
+        <div class="project-tags"><span>VHDL</span><span>FPGA Final Project</span></div>
+      </div>
+    </div>
+
+    <div class="hand-rule"></div>
+
+    <div class="project reverse reveal">
       <div class="project-img-wrap"><img src="images/chip8.png" alt="Chip-8 emulator artwork"></div>
       <div class="project-info">
         <h3>CHIP-8 Emulator</h3>
@@ -401,37 +428,16 @@
 
     <div class="hand-rule"></div>
 
-    <div class="project">
-      <div class="project-img-wrap"><img src="images/minesweeper.jpg" alt="Automation illustration"></div>
-      <div class="project-info">
-        <h3>FPGA-Based Minesweeper Engine</h3>
-        <p>A hardware-accelerated Minesweeper implementation built entirely in VHDL — FSM controller, BRAM-backed grid storage, parallel combinational adjacency logic, and an LFSR for mine placement. No CPU involved, just RTL.</p>
-        <div class="project-tags"><span>VHDL</span><span>FPGA</span><span>FSM Design</span></div>
-        <div class="project-links">
-          <a href="https://github.com/SamuelWang05" target="_blank" class="project-link"><img src="images/Octicons-mark-github.svg" alt="">Repo</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="hand-rule"></div>
-
-    <div class="project reverse">
-      <div class="project-img-wrap"><img src="images/vlsi_project.png" alt="STM32 audio hardware"></div>
-      <div class="project-info">
-        <h3>8x8 Radix-4 Booth Multiplier</h3>
-        <p>Designed and verified an 8-bit Radix-4 Booth multiplier from schematic to full-custom layout in Cadence Virtuoso, cutting partial products by 50% with a carry-lookahead adder for summation. Clean on DRC/LVS, with post-layout timing validated through parasitic extraction.</p>
-        <div class="project-tags"><span>Cadence Virtuoso</span><span>VLSI</span><span>Custom Layout</span></div>
-        <div class="project-links">
-          <a href="https://github.com/SamuelWang05" target="_blank" class="project-link"><img src="images/Octicons-mark-github.svg" alt="">Repo</a>
-        </div>
-      </div>
+    <div class="activity-block reveal">
+      <h2>Recent on GitHub</h2>
+      <ul id="activity-list"><li>Loading recent activity…</li></ul>
     </div>
 
   </section>
 
   <!-- RESUME -->
   <section id="resume" class="view">
-    <div class="resume-top">
+    <div class="resume-top reveal">
       <h2>Resume</h2>
       <a href="Samuel_Wang_Resume.pdf" download class="download-btn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 21h14"/></svg>
@@ -439,7 +445,7 @@
       </a>
     </div>
 
-    <div class="resume-block">
+    <div class="resume-block reveal">
       <h3>Education</h3>
       <div class="hand-rule" style="margin-bottom:1.1rem;"></div>
       <div class="entry">
@@ -455,7 +461,7 @@
       </div>
     </div>
 
-    <div class="resume-block">
+    <div class="resume-block reveal">
       <h3>Experience</h3>
       <div class="hand-rule" style="margin-bottom:1.1rem;"></div>
       <div class="entry">
@@ -483,9 +489,17 @@
           <li>Built a CAN-based automated test and validation setup for manufacturing equipment, improving throughput 65% across 3 production lines</li>
         </ul>
       </div>
+      <div class="entry">
+        <div class="entry-head"><h4>SyBBURE Searle Undergraduate Research Program</h4><span class="when mono">May 2025 – Jul 2025</span></div>
+        <p class="role">Research Fellow, Nashville, TN</p>
+        <ul>
+          <li>Full funding for research (conference travel, lab equipment, etc.) & access to makerspaces for personal projects</li>
+          <li>Semester long "hackathons" in teams of 4 - prev. created EEG signal processing system, responsive LED system for recycled lamps, etc.</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="resume-block">
+    <div class="resume-block reveal">
       <h3>Skills</h3>
       <div class="hand-rule" style="margin-bottom:1.1rem;"></div>
       <div class="skills-grid">
@@ -530,10 +544,48 @@
   // Tabs
   const tabButtons = document.querySelectorAll('nav.tabs button');
   const views = document.querySelectorAll('.view');
+  const tabNav = document.querySelector('nav.tabs');
+  const tabIndicator = document.getElementById('tabIndicator');
+
+  function moveIndicator(btn, instant){
+    if(!btn) return;
+    const navRect = tabNav.getBoundingClientRect();
+    const btnRect = btn.getBoundingClientRect();
+    if(instant) tabIndicator.style.transition = 'none';
+    tabIndicator.style.width = btnRect.width + 'px';
+    tabIndicator.style.height = btnRect.height + 'px';
+    tabIndicator.style.transform = `translate(${btnRect.left - navRect.left}px, ${btnRect.top - navRect.top}px)`;
+    if(instant){
+      void tabIndicator.offsetWidth;
+      tabIndicator.style.transition = '';
+    }
+  }
+
+  // Reveal: fade/slide elements in top-to-bottom, staggered, each time a view is shown
+  function playReveal(view){
+    const items = view.querySelectorAll('.reveal');
+    items.forEach(el => {
+      el.classList.remove('show');
+      el.style.animationDelay = '';
+    });
+    void view.offsetWidth; // force reflow so animation restarts
+    items.forEach((el, i) => {
+      el.style.animationDelay = (i * 70) + 'ms';
+      el.classList.add('show');
+    });
+  }
 
   function activate(tab){
+    let activeBtn = null;
     views.forEach(v => v.classList.toggle('active', v.id === tab));
-    tabButtons.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    tabButtons.forEach(b => {
+      const isActive = b.dataset.tab === tab;
+      b.classList.toggle('active', isActive);
+      if(isActive) activeBtn = b;
+    });
+    moveIndicator(activeBtn);
+    const activeView = document.getElementById(tab);
+    if(activeView) playReveal(activeView);
   }
 
   tabButtons.forEach(btn => {
@@ -545,10 +597,27 @@
 
   const initial = window.location.hash.substring(1);
   if(initial && document.getElementById(initial)){ activate(initial); }
+  else {
+    // Initial paint: position the indicator instantly and play the first reveal
+    const initialBtn = document.querySelector('nav.tabs button.active');
+    moveIndicator(initialBtn, true);
+    const initialView = document.getElementById('about');
+    if(initialView) playReveal(initialView);
+  }
 
   window.addEventListener('hashchange', () => {
     const h = window.location.hash.substring(1);
     if(h && document.getElementById(h)) activate(h);
+  });
+
+  window.addEventListener('resize', () => {
+    const activeBtn = document.querySelector('nav.tabs button.active');
+    moveIndicator(activeBtn, true);
+  });
+
+  window.addEventListener('load', () => {
+    const activeBtn = document.querySelector('nav.tabs button.active');
+    moveIndicator(activeBtn, true);
   });
 
   // Photo collage lightbox
